@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+ web:
+  build: .
+  ports:
+    - "${LOCAL_PORT}:8080"
+  environment:
+    LOCAL_PORT: ${LOCAL_PORT}
+
