@@ -3,9 +3,10 @@ Acesta este proiectul de frontend web pentru Sistemul de Programări Online real
 
 # Instalarea
 
-Urmaţi următorii paşi:
+Copiaţi şi configuraţi fişierele cu variabilele de mediu pentru aplicaţie:
 ```
 cp settings.env.dist settings.env
+vim settings.env
 ```
 
 Dacă e nevoie, modificaţi portul local pe care rulează Node.js.
