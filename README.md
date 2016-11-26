@@ -4,6 +4,13 @@ Acesta este proiectul de frontend web pentru Sistemul de Programări Online real
 
 ## Instalare
 
+### For the Ionic app
+- clone git repo
+- run npm install -g ionic cordova; if you havent already
+- run npm install; it will install the local packages
+- run ionic state restore; it will restore plugins, platforms, etc
+
+### For something else
 Rulați următoarele comenzi:
 
 ```
@@ -15,6 +22,9 @@ Editați fișierul `.env` și modificați portul pe care rulează aplicația, da
 **Atenție** Proiectul API folosește porturile `8080` și `8081`.
 
 ## Execuție
+### For Ionic
+- run ionic serve; use --address localhost if you run into host related issues; use --port X if you want to change the port
+- if the browser does not automatically open, go to http://localhost:8100/; replace with selected host and port
 
 ### Linux
 
