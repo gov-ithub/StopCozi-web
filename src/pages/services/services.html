@@ -47,4 +47,13 @@
     </ion-item>
   </ion-list>
 
+  <ion-card *ngIf="searchQuery && !serviceItems.length">
+    <ion-card-header>
+      {{ 'No services found' }}
+    </ion-card-header>
+    <ion-card-content>
+      {{ 'Rephrase your search query' }}
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>
