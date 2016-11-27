@@ -6,6 +6,7 @@ Acesta este proiectul de frontend web pentru Sistemul de Programări Online real
 
 ### For the Ionic app
 - clone git repo
+- copy ionic.config.json.sample to ionic.config.json
 - run "npm install -g ionic cordova"; if you havent already
 - run "npm install"; it will install the local packages
 - run "ionic state restore"; it will restore plugins, platforms, etc; run "ionic state save" if you change plugins/platforms
