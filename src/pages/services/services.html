@@ -6,9 +6,45 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <h2>{{ 'Welcome to StopCozi' }}</h2>
+<ion-content padding>
   <p>
-    {{ 'Lorem ipsum' }}
+    {{ 'This is where you search for services' }}
   </p>
+
+  <ion-searchbar (ionInput)="getSearchItems($event)" [(ngModel)]="searchQuery"></ion-searchbar>
+
+  <ion-item-group *ngIf="recentSearchItems.length">
+    <ion-item-divider color="light">
+      {{ 'Recent searches' }}
+    </ion-item-divider>
+    <ion-item *ngFor="let item of recentSearchItems">
+      <ion-icon ios="ios-timer-outline" md="md-timer" item-left></ion-icon>
+      {{ item }}
+    </ion-item>
+  </ion-item-group>
+
+  <ion-item-group *ngIf="popularSearchItems.length">
+    <ion-item-divider color="light">
+      {{ 'Popular searches' }}
+    </ion-item-divider>
+    <ion-item *ngFor="let item of popularSearchItems">
+      <ion-icon name="search" item-left></ion-icon>
+      {{ item }}
+    </ion-item>
+  </ion-item-group>
+
+  <button ion-button block (click)="getServiceItems()" [disabled]="">
+    {{ 'Search' }}
+  </button>
+
+  <ion-list>
+    <ion-item *ngFor="let item of serviceItems">
+      <ion-avatar item-left>
+        <img [src]="item.image">
+      </ion-avatar>
+      <h2>{{ item.name }}</h2>
+      <p>{{ item.description }}</p>
+    </ion-item>
+  </ion-list>
+
 </ion-content>
