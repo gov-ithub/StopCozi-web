@@ -4,16 +4,58 @@ Acesta este proiectul de frontend web pentru Sistemul de Programări Online real
 
 ## Instalare
 
-### For the Ionic app
-- clone git repo
-- copy ionic.config.json.sample to ionic.config.json
-- run "npm install -g ionic cordova"; if you havent already
-- run "npm install"; it will install the local packages
-- run "ionic state restore"; it will restore plugins, platforms, etc; run "ionic state save" if you change plugins/platforms
-- run "ionic platform add X"; X is the platform you wish to add
-- run "ionic build X"; X is the platform you wish to run
+Puteți urma fie instalarea manuală, fie cea pentru platforma Docker.
 
-### For something else
+Recomandăm să o urmați pe ultima pentru că este complet automatizată.
+
+### Instalare manuală
+
+Clonează repository-ul de git:
+
+```
+git clone git@github.com:gov-ithub/StopCozi-web.git
+cd StopCozi-web
+```
+
+Hai să instalăm `ionic` și `cordova` global pe mașina noastră:
+
+```
+npm install -g ionic cordova
+```
+
+Acum, configurarea și instalarea pachetelor npm necesare proiectului:
+
+```
+cp ionic.config.json.sample ionic.config.json
+npm install
+```
+
+Pentru a reinstala pluginurile/platformele, folosește:
+
+```
+ionic state restore
+```
+
+Dacă vei schimba pluginurile/platformele, folosește:
+
+```
+ionic state save
+```
+
+Pentru a adăuga platforma `X` folosește:
+
+```
+ionic platform add X
+```
+
+Pentru a construi platforma `X`, folosește:
+
+```
+ionic build X
+```
+
+### Instalare via Docker
+
 Rulați următoarele comenzi:
 
 ```
@@ -25,18 +67,34 @@ Editați fișierul `.env` și modificați portul pe care rulează aplicația, da
 **Atenție** Proiectul API folosește porturile `8080` și `8081`.
 
 ## Execuție
-### Ionic
-- run "ionic serve" to run in a browser; use "--address localhost" if you run into host related issues; use "--port X" if you want to change the port; if the browser does not automatically open, go to http://localhost:8100/; replace with selected host and port; use --lab to get side by side platforms
-- run "ionic emulate X"; X is the platform for which you have an emulator; certain emulators behave as physical devices so you need to use the run command instead of emulate
-- run "ionic run X"; X is the platform you wish to run depending on the native device connected to your computer
 
-### Linux
+### Folosind metoda manuală
+
+Pentru a porni aplicația, folosiți:
+
+```
+ionic serve --address localhost --port 8082
+```
+
+Pentru a emula o anumită platformă, folosiți:
+
+```
+ionic emulate X
+```
+
+Pentru a rula aplicația pe un dispozitiv extern conectat la PC, folosiți:
+
+```
+ionic run X
+```
+
+### Docker Linux
 
 ```
 docker-compose up -d
 ```
 
-### Windows
+### Docker Windows
 
 Dacă folosești Babun și ConEmu, rulează mai întâi:
 
