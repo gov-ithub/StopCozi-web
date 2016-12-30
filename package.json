@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "StopCozi-web: An Ionic project",
   "author": "First Last <first.last@example.com>",
-  "main": "server.js",
   "scripts": {
     "ionic:build": "ionic-app-scripts build",
-    "ionic:serve": "ionic-app-scripts serve"
+    "ionic:serve": "ionic-app-scripts serve",
+    "heroku-prebuild": "./heroku-start.sh"
   },
   "repository": {
     "type": "git",

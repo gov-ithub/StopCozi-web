@@ -3,8 +3,13 @@ version: '2'
 services:
  web:
   build: .
+  volumes:
+    - .:/usr/src/app
+  expose:
+    - "${LOCAL_PORT}"
   ports:
-    - "${LOCAL_PORT}:8080"
+    - ${LOCAL_PORT}:${LOCAL_PORT}
   environment:
     LOCAL_PORT: ${LOCAL_PORT}
+  command: ./start.sh
 

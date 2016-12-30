@@ -1,21 +1,22 @@
 FROM centos:latest
 
+ENV APP_DIR /usr/src/app
+
 # Update the system
 RUN yum install epel-release -y \
 	&& yum update -y \
-    && yum install -y nodejs \
-    && yum clean all
+  && yum install -y nodejs \
+  && yum clean all
 
-# Create app directory
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+# Setup the needed tools
+RUN npm install -g ionic cordova
 
-# Install app dependencies
-COPY package.json /usr/src/app/
-RUN npm install
+# Create an user with limited access.
+RUN useradd -d${APP_DIR} -s/sbin/nologin -m govithub
 
-# Bundle app source
-COPY . /usr/src/app
+VOLUME ${APP_DIR}
+WORKDIR ${APP_DIR}
 
-EXPOSE 8080
-CMD [ "npm", "start" ]
+RUN chown -R govithub:govithub ${APP_DIR}
+
+USER govithub

@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+- '6'
+script: npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: UaJuVWfwIrbTHSr1skmPbdYGmbsnM7deZ4yegEiLaq0sJog6NFRG4//Vh2h+tdypz87YXiyC299tR5ZXuBXHlsmuUEHjSNkdeuktBZ80xFNbvnGzXBtA4ONq2FzDC9Arq39B+ALmzo/HxMiUaC19eQzNTqEszpB0Fc3xpygcdcriZ6gbORjBfQ5fFLQTile+zgn8UjPNjhBmJZNNy1IJpDifC0yB6KPtdNe3Y1qfWnpRAeBMhp9RZMEtrtYSQNSCjU+XtTzrAIgl38rE53pKNNbqRKuDBTIoM8MfrT1O7jDqggns+c1+FioLcNS7M4oen7fAqeJqx14YA292xq4rK9SvTae4YHuUcngLzHtYG5i7byEJmtrv9rvKKS2drfe/WMctDtrossaKsadnY3HKd4rM3fzO4uAGqLowFcyMpFOFdf3SoyNigBdWMIMGSE5pl9F2alPwdKP41hlKu/NkEshBDl+ZaBbEbDX9wiUYBwJYLlQ2G5MmAUhFuxclnY7NmGsNv3MQEB3tfVOAVMftCLmNhCiZZ7v0ul5iI8F7+8WEunaSHrwSP61qMRLEhFwTyrsUIAWhht+zaqiK6Dq6SiSnFTt4SbaXdLQdYoAW4Am6GGTcKpHIlVO9+9gLgjslKedjUj2z3lSfTVlQHdXFkefWuB5QQA86G0+W+SaVYm8=
+  app: yoyosan-stopcozi-web
+  on:
+    repo: yoyosan/StopCozi-web
