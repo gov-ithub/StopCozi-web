@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-tickets',
@@ -9,8 +10,8 @@ export class TicketsPage {
 
   tickets: Ticket[]
 
-  constructor(public navCtrl: NavController) {
-	this.getTickets();
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
+		this.getTickets();
   }
 
   getTickets(){
@@ -33,11 +34,32 @@ export class TicketsPage {
 	));
   }
 
-	deleteTicket(id){
-		// Perform an ajax call to delete the ticket and then call the following code as callback
-		this.tickets = this.tickets.filter(function(el) {
-				return el.id !== id;
-		});
+	deleteTicket(event:Event, id){
+
+		event.stopPropagation();
+
+    let confirm = this.alertCtrl.create({
+      title: 'Sterge tichetul?',
+      message: 'Esti sigur ca vrei sa stergi acest tichet?',
+      buttons: [
+        {
+          text: 'Anuleaza',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Sterge',
+          handler: () => {
+            // Perform an ajax call to delete the ticket and then call the following code as callback
+						this.tickets = this.tickets.filter(function(el) {
+								return el.id !== id;
+						});
+          }
+        }
+      ]
+    });
+		confirm.present();
 	}
 
 	toggleDetails(ticket: Ticket) {
