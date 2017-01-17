@@ -1,13 +1,41 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      {{ 'Tickets' }}
-    </ion-title>
+	<ion-title text-center>
+	  {{ 'Tichetele mele' }}
+	</ion-title>
+
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <p>
-    {{ 'This is where you keep track of your tickets' }}
-  </p>
+  <ion-card *ngFor="let ticket of tickets" (click)="toggleDetails(ticket)">
+	<ion-card-header>
+	  <ion-row>
+		  <ion-col>
+			{{ ticket.title }}
+		  </ion-col>
+		  <ion-col text-right>
+			{{ ticket.ticketId }}
+		  </ion-col>
+	  </ion-row>
+	</ion-card-header>
+
+	<ion-card-content>
+		<ion-row>
+			<ion-col>
+			<ion-icon name="time"></ion-icon>
+				{{ ticket.date }}
+			</ion-col>
+			<ion-col text-right>
+				<ion-icon name="alarm"></ion-icon>
+				<ion-icon name="trash" (click)="deleteTicket(ticket.id)"></ion-icon>
+			</ion-col>
+		</ion-row>
+		<ion-row *ngIf="ticket.showDetails">
+			THIS IS THE INNER CONTENT
+		</ion-row>
+	</ion-card-content>
+
+
+  </ion-card>
 </ion-content>
